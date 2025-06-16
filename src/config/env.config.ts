@@ -251,6 +251,7 @@ export type S3 = {
   PORT?: number;
   USE_SSL?: boolean;
   REGION?: string;
+  SET_BUCKET_POLICY?: boolean;
 };
 
 export type CacheConf = { REDIS: CacheConfRedis; LOCAL: CacheConfLocal };
@@ -555,6 +556,7 @@ export class ConfigService {
         PORT: Number.parseInt(process.env?.S3_PORT || '9000'),
         USE_SSL: process.env?.S3_USE_SSL === 'true',
         REGION: process.env?.S3_REGION,
+        SET_BUCKET_POLICY: process.env?.S3_SET_BUCKET_POLICY === 'true',
       },
       AUTHENTICATION: {
         API_KEY: {
